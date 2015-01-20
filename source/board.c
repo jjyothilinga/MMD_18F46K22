@@ -111,6 +111,11 @@ void BRD_init(void)
 		break;
 		
 		case MHz_32:
+				OSCCON = 0X60; 		//internal oscillator 16MHz
+				OSCTUNEbits.PLLEN = 1;	//PLL Enable
+		break;
+
+		case MHz_16:
 				OSCCON = 0X70; 		//internal oscillator 16MHz
 				OSCTUNEbits.PLLEN = 0;	//PLL Enable
 		break;
@@ -138,7 +143,32 @@ void BRD_init(void)
 	HEART_BEAT_DIRECTION = PORT_OUT;
 
     // Enable internal PORTB pull-ups
-    INTCON2bits.RBPU = 0;
+    //INTCON2bits.RBPU = 0;
+
+	// MMD Configuration
+	DISPLAY_CONTROL_DIRECTION = PORT_OUT;
+	DISPLAY_CONTROL			  = DISPLAY_DISABLE;
+
+
+	DATA_PORT_DIR = 0x00;
+	DIGIT_PORT_DIR = 0x00;
+	DIGIT_PORT = 0x00;
+	
+
+	ROW_SEL_A_DIR = PORT_OUT;
+	ROW_SEL_A = SWITCH_OFF;
+	ROW_SEL_B_DIR = PORT_OUT;
+	ROW_SEL_B = SWITCH_OFF;
+	ROW_SEL_C_DIR = PORT_OUT;
+	ROW_SEL_C = SWITCH_OFF;
+	ROW_SEL_D_DIR = PORT_OUT;
+	ROW_SEL_D = SWITCH_OFF;
+	ROW_SEL_E_DIR = PORT_OUT;
+	ROW_SEL_E = SWITCH_OFF;
+	ROW_SEL_F_DIR = PORT_OUT;
+	ROW_SEL_F = SWITCH_OFF;
+	ROW_SEL_G_DIR = PORT_OUT;
+	ROW_SEL_G = SWITCH_OFF;
 
 	
 

@@ -20,7 +20,7 @@
 *	OSCILLATOR CONFIG
 *----------------------------------------*/
 
-#define SYSTEM_CLOCK			(MHz_64)	
+#define SYSTEM_CLOCK			(MHz_16)	
 
 
 /*----------------------------------------
@@ -38,8 +38,8 @@
 #define MMD_MAX_CHARS		8
 #define MMD_MAX_SEGMENTS	4
 #define MMD_MAX_ADDRESS		128
-#define __MMD_STATIC__
-
+//#define __MMD_STATIC__
+#define MMD_TEST
 /*----------------------------------------
 *	COM module configuration
 *----------------------------------------*/

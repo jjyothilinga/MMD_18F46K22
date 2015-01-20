@@ -52,6 +52,7 @@
 */
 extern UINT16 tickPeriod;
 extern unsigned long heartBeatCount;
+extern UINT16 mmdUpdateCount;
 /*
 *------------------------------------------------------------------------------
 * Public Constants (extern)

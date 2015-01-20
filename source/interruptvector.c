@@ -20,6 +20,11 @@ void high_interrupt (void)
   		_asm GOTO TMR0_ISR _endasm
 	}
 
+	if(PIR1bits.TMR1IF == 1)
+	{
+		_asm GOTO TMR1_ISR _endasm
+	}
+
 	if(PIR1bits.TMR2IF == 1)
 	{
 		_asm GOTO TMR2_ISR _endasm

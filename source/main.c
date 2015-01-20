@@ -59,6 +59,7 @@
 #include "timer.h"
 #include "heartbeat.h"
 #include "config.h"
+#include "mmd.h"
 
 /*
 *------------------------------------------------------------------------------
@@ -145,19 +146,38 @@
 */
 
 
+#define MMD_REFRESH_PERIOD	(65535 - 2000) //500us
+
 void main(void)
 {
 	unsigned long temp;
 
+#ifdef MMD_TEST
+	MMD_Config mmdConfig= {0};
+	UINT8 line[10] ="LINE "; 
+#endif
+
 	BRD_init();			//board initialization
 
 	TMR0_init(tickPeriod,0);		//initialize timer0
+	TMR1_init(MMD_REFRESH_PERIOD,MMD_refreshDisplay);		//initialize timer1
+	//TMR2_init(130 ,MMD_refreshDisplay); //250us
 
 	EnableInterrupts();		//Interrupts initialization
 
 	//Heart Beat to blink at every 500ms
 	temp = (500UL *1000UL)/TIMER0_TIMEOUT_DURATION;
-	
+
+#ifdef MMD_TEST
+	MMD_clearSegment(0);
+	mmdConfig.startAddress = 0;
+	mmdConfig.length = 6;
+	mmdConfig.symbolCount = 5;
+	mmdConfig.symbolBuffer = line;
+	mmdConfig.scrollSpeed = SCROLL_SPEED_LOW;	
+	MMD_configSegment( 0 , &mmdConfig);
+#endif
+			
 	while(1)
 	{
 
@@ -167,7 +187,12 @@ void main(void)
 			HB_task();
 			heartBeatCount = 0;
 		}
-		
+
+		if( mmdUpdateCount >= 50 )
+		{
+			MMD_task();
+			mmdUpdateCount = 0;
+		}
 	}
 
 

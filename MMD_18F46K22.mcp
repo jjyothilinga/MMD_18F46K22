@@ -36,6 +36,8 @@ file_008=.
 file_009=.
 file_010=.
 file_011=.
+file_012=.
+file_013=.
 [GENERATED_FILES]
 file_000=no
 file_001=no
@@ -49,6 +51,8 @@ file_008=no
 file_009=no
 file_010=no
 file_011=no
+file_012=no
+file_013=no
 [OTHER_FILES]
 file_000=no
 file_001=no
@@ -62,6 +66,8 @@ file_008=no
 file_009=no
 file_010=no
 file_011=no
+file_012=no
+file_013=no
 [FILE_INFO]
 file_000=source\board.c
 file_001=source\config.c
@@ -69,12 +75,14 @@ file_002=source\heartBeat.c
 file_003=source\interruptvector.c
 file_004=source\main.c
 file_005=source\timer.c
-file_006=include\board.h
-file_007=include\config.h
-file_008=include\heartbeat.h
-file_009=include\timer.h
-file_010=include\typedefs.h
-file_011=18f46k22_g.lkr
+file_006=source\MMD.c
+file_007=include\board.h
+file_008=include\config.h
+file_009=include\heartbeat.h
+file_010=include\timer.h
+file_011=include\typedefs.h
+file_012=include\mmd.h
+file_013=18f46k22_g.lkr
 [SUITE_INFO]
 suite_guid={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 suite_state=

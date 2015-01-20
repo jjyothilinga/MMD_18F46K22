@@ -48,10 +48,34 @@
 
 
 //Heart Beat
-#define 	HEART_BEAT					PORTEbits.RE0
-#define 	HEART_BEAT_DIRECTION		TRISEbits.TRISE0
+#define 	HEART_BEAT					PORTCbits.RC1
+#define 	HEART_BEAT_DIRECTION		TRISCbits.TRISC1
 
+// MMD PORTS
+#define 	DISPLAY_CONTROL				PORTEbits.RE2
+#define 	DISPLAY_CONTROL_DIRECTION	TRISEbits.TRISE2
 
+#define		DATA_PORT				PORTD	//LATD	 				// 7seg display data (DB0-DB7)
+#define 	DATA_PORT_DIR			TRISD
+#define		DIGIT_PORT				PORTB	//LATB	 				// digit drivers(upto 128 digits)
+#define		DIGIT_PORT_DIR			TRISB	//LATB	 				// digit drivers(upto 128 digits)
+
+#define		ROW_SEL_A				PORTAbits.RA0			// decoder digit sel A
+#define		ROW_SEL_A_DIR			TRISAbits.TRISA0
+#define		ROW_SEL_B				PORTAbits.RA1		// decoder digit sel B
+#define		ROW_SEL_B_DIR			TRISAbits.TRISA1
+#define		ROW_SEL_C				PORTAbits.RA2		// decoder digit sel C
+#define		ROW_SEL_C_DIR			TRISAbits.TRISA2
+#define		ROW_SEL_D				PORTAbits.RA3		// decoder digit sel D
+#define		ROW_SEL_D_DIR			TRISAbits.TRISA3
+#define		ROW_SEL_E				PORTAbits.RA4		// decoder digit sel E
+#define		ROW_SEL_E_DIR			TRISAbits.TRISA4
+#define		ROW_SEL_F				PORTAbits.RA5		// decoder digit sel F
+#define		ROW_SEL_F_DIR			TRISAbits.TRISA5
+#define		ROW_SEL_G				PORTEbits.RE0	// decoder digit sel G
+#define		ROW_SEL_G_DIR			TRISEbits.TRISE0
+#define		ROW_SEL_H				PORTEbits.RE1	// decoder digit sel G
+#define		ROW_SEL_H_DIR			TRISEbits.TRISE1
 	
 /*
 *------------------------------------------------------------------------------
@@ -131,6 +155,9 @@ void EnableInterrupts(void);
 
 #define DISABLE_TMR1_INTERRUPT()	PIE1bits.TMR1IE = 0
 #define ENABLE_TMR1_INTERRUPT()		PIE1bits.TMR1IE = 1
+
+#define DISABLE_TMR2_INTERRUPT()	PIE1bits.TMR2IE = 0
+#define ENABLE_TMR2_INTERRUPT()		PIE1bits.TMR2IE = 1
 
 
 #define DISABLE_UART_TX_INTERRUPT()	PIE1bits.TXIE = 0
